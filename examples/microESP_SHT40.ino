@@ -1,0 +1,48 @@
+/*
+* This example code is used for microESP board 
+* with Temperature and Humidity SHTxx module
+* MicroESP board reads temperature and humidity from SHT40 sensor 
+* and sends every second through UART
+*
+* SDA - GPIO4
+* SCL - GPIO5
+*
+* Made by (c) laskarduino.cz 2021
+*
+* Libraries:
+* https://github.com/adafruit/Adafruit_SHT4X
+*/
+ 
+#include <Wire.h>
+#include "Adafruit_SHT4x.h"
+ 
+Adafruit_SHT4x sht4 = Adafruit_SHT4x();
+ 
+void setup() {
+  Serial.begin(115200);
+  while (!Serial) 
+  {
+    ; // wait for serial port
+  }
+ 
+  if (! sht4.begin()) 
+  {
+    Serial.println("SHT4x not found");
+    Serial.println("Check the connection");
+    while (1) delay(1);
+  }
+ 
+  sht4.setPrecision(SHT4X_HIGH_PRECISION); // highest resolution
+  sht4.setHeater(SHT4X_NO_HEATER); // no heater
+ 
+}
+ 
+void loop() {
+  sensors_event_t humidity, temp; // variables for temperature and humidity
+ 
+  sht4.getEvent(&humidity, &temp);
+  Serial.print("Temperature: "); Serial.print(temp.temperature); Serial.println(" degC");
+  Serial.print("Humidity: "); Serial.print(humidity.relative_humidity); Serial.println("% rH");
+ 
+  delay(1000);
+}
