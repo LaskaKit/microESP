@@ -2,7 +2,7 @@
 
 ![microESP se solárním panelem](https://github.com/LaskaKit/microESP/blob/main/img/microESP_1.jpg)
 
-Představujeme vám naší nejmenší vývojovou desku - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). 
+Představujeme vám naší nejmenší vývojovou desku - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). Footprint je kompatibilní s ESP12, ESP07 nebo ESP32-C3 - záleží na vás, jaký modul preferujete a jaký osadíte. 
 A i když je velikost plošného spoje jen 24x21,5mm a váha pouhé 4g, obsahuje například - vstup na Li-ion akumulátor i nabíjecí obvod, stabilizátor na 3.3V s velmi nízkou vlastní spotřebou, vstup na solární panel a také konektor pro čidla s I2C rozhraním. 
 
 ## Rozvržení
@@ -43,4 +43,4 @@ Poměr rezistorů je 3,3, to znamená, že maximální měřitelné napětí je 
 Jedno z praktických použití můžete vidět na fotografii výše. 
 Nabíjení akumulátoru ze solárního panelu je indikován osazenou LED. Modul čidla [Temp-HumSensor-SHTxx](https://github.com/LaskaKit/Temp-HumSensor-SHTxx) může být napřímo připojen k LaskaKit microESP vývojovému kitu
 
-Příklad použití můžete najít [na našem github](https://github.com/LaskaKit/microESP/tree/main/examples). V tomto příkladu ESP12 vyčte aktuální teplotu a vlhkost z čidla SHT40. Teplotu a vlhkost vypíše do serial terminálu.  
+Příklad použití můžete najít [na našem github](https://github.com/LaskaKit/microESP/tree/main/examples). V tomto příkladu ESP12 (který jsme použili) vyčte aktuální teplotu a vlhkost z čidla SHT40. Teplotu a vlhkost vypíše do serial terminálu.  
