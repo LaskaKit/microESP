@@ -2,7 +2,7 @@
 
 ![microESP with solar panel](https://github.com/LaskaKit/microESP/blob/main/img/microESP_1.jpg)
 
-We would like to introduce the smallest evaluation board - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). 
+We would like to introduce the smallest evaluation board - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). The footprint is compatible with ESP12, ESP07 or ESP32-C3. It is depending on you what you prefer to assemble. 
 The dimension of PCB is only 24x21.5mm and the weight is 4g. The evaluation board includes - input of Li-ion battery, charging IC, 3.3V regulator with low quiescent current, input for solar panel and also connector with I2C bus.
 
 ## Layout
@@ -25,7 +25,7 @@ Thanks to this regulator and the design of board, the overall current in deepsle
 ## Programmer
 
 We have own USB-UART programmer with CH340 IC, [LaskaKit CH340 programmer](https://www.laskarduino.cz/laskakit-ch340-programmer-usb-c--microusb--uart/). You can connect this programmer to your laptop through microUSB or USB-C cabel. 
-The pinout of programmer is compatible with microESP. The programmer automatically switches the ESP12 to bootloader mode and after the uploading of code, the ESP is automatically reset. 
+The pinout of programmer is compatible with microESP. The programmer automatically switches the ESP8266 to bootloader mode and after the uploading of code, the ESP is automatically reset. 
 
 ## Another features
 
@@ -41,4 +41,4 @@ The maximum measured voltage is 4.3V what is enough for measuring of Li-ion batt
 We created a demo with our microESP, what you can see on the picture above.
 The charging is indicated by LED on board, the sensor module [Temp-HumSensor-SHTxx](https://github.com/LaskaKit/Temp-HumSensor-SHTxx) may be directly connected to the main board. 
 
-The example is available on [our github repository](https://github.com/LaskaKit/microESP/tree/main/examples). IN this example, ESP12 reads the current temperature and humidity from SHT40 and send to Serial monitor.
+The example is available on [our github repository](https://github.com/LaskaKit/microESP/tree/main/examples). IN this example, ESP12 (which we soldered) reads the current temperature and humidity from SHT40 and send to Serial monitor.
