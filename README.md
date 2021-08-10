@@ -2,7 +2,7 @@
 
 ![microESP with solar panel](https://github.com/LaskaKit/microESP/blob/main/img/microESP_1.jpg)
 
-We would like to introduce the smallest evaluation board - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). The footprint is compatible with ESP12, ESP07 or ESP32-C3. It depends on you what you prefer to assemble. 
+We would like to introduce the smallest evaluation board - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). The footprint is compatible with ESP12 or ESP07. It depends on you what you prefer to assemble. 
 The dimension of PCB is only 24x21.5mm and the weight is 4g. The evaluation board includes - input of Li-ion battery, charging IC, 3.3V regulator with low quiescent current, input for solar panel and also connector with I2C bus.
 
 ## Layout
