@@ -32,5 +32,6 @@ void loop() {
   Serial.print("Voltage = ");
   Serial.print(solar_voltage * 10);
   Serial.println("V");
+  Serial.println("");
   delay(1000);
 }
