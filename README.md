@@ -1,44 +1,25 @@
-# LaskaKit microESP
+# LaskaKit microESP with ESP32-C3
 
-![microESP with solar panel](https://github.com/LaskaKit/microESP/blob/main/img/microESP_1.jpg)
+So powerful and small evaluation board called microESP with ESP32-C3 what includes Wi-Fi and Bluetooth connectivity and moreover the own power consumption is so low.
 
-We would like to introduce the smallest evaluation board - [LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/). The footprint is compatible with ESP12 or ESP07. It depends on you what you prefer to assemble. 
-The dimension of PCB is only 24x21.5mm and the weight is 4g. The evaluation board includes - input of Li-ion battery, charging IC, 3.3V regulator with low quiescent current, input for solar panel and also connector with I2C bus.
+![Description microESP_ESP32-C3_BOTTOM.jpg](https://github.com/LaskaKit/microESP/blob/main/img/microESP_ESP32-C3_BOTTOM.jpg)
 
-## Layout
+As you can see above, the board includes a lot of things. Let's describe the boardy in details. 
+The board is powered from Li-Pol battery what is charger through li-pol charger from solar panel. The recommended voltage of solar panel shall be 5V or 6V.
+Thanks to solder bridge on the up, you can choose the charging current to battery - 0.4A or 0.26A. It is depending what lipol battery and solar panel you connected.
+Our recommendation:
+If you want to use solar panel with current more than 250mA but less than 400mA, use 260 mA charging current. If you the current from solar panel is higher than 400mA, choose 400mA charging current. One more condition is the capacity of lipol battery. If the capacity is lower than 500mA, use 260mA charging current doesn't matter if the current from solar panel is higher than 400mA. Just use 260mA in case the capacity of lipol battery is lower than 500mA.
 
-![TOP of microESP](https://github.com/LaskaKit/microESP/blob/main/img/microESP_TOP.jpg)
+We put our versatile and safe μŠup connector where you can connect I2C sensors. The lock of connector is mounted inside the connector, so no worries, you can not damage the sensor because you can not turn over the connector.
+The sensor what are useful for this board are [SHT40 (temperature and humidity)](https://www.laskakit.cz/laskakit-sht40-senzor-teploty-a-vlhkosti-vzduchu/) or [SCD41 (CO2, temperature, humidity](https://www.laskakit.cz/laskakit-scd41-senzor-co2--teploty-a-vlhkosti-vzduchu/). 
+Moreover, we added five SMD pads 3x GPIO (IO3, IO4, IO5) and power supply (3.3V and GND) what you can use for what you want.
+Also RX and TX of UART bus have SMD pads so if you have sensor with UART bus, you can use it without issue.
+Just in case, we added two more SMD pads with 3.3V and GND.
 
-![BOTTOM of microESP](https://github.com/LaskaKit/microESP/blob/main/img/microESP_BOT.jpg)
+On the upper side, there are three solder bridges. First two solder bridges are used for enabling of voltage measurement from battery and solar panel. 
+One is battery voltage measurement (connected to IO0) and the maximum input voltage is 5.8V (with 3.3V ADC reference voltage, R1 100k, R2 130k). The second solder bridge is connected to IO1 and to input of solar panel. The maximum input voltage may be 13.3 V (ADC reference voltage 3.3V, R1 1M, R2 330k) but keep in mind that we recommend the voltage of solar panel 5V or 6V. 
+The last solder bridge is used for connecting of I2C pull up resistors (IO18, IO19) to power supply (3.3V).
 
-## Solar panel
+The best programmer is our [LaskaKit CH340 programmer USB-C, microUSB](https://www.laskakit.cz/laskakit-ch340-programmer-usb-c--microusb--uart/) becuase it is pin-to-pin compatible with microESP with ESP32-C3.
 
-The [TP4054](https://www.laskarduino.cz/toppower-tp4054-nabijecka-li-ion-clanku--0-4a--sot-23-5/) is used as charging IC, the maximum input voltaga is 10V hence the nominal voltage of solar panel shall be 5V, maximum 6V.
-
-The charging current is defined by R11 resistor and the current is set to 400 mA.
-
-## 3.3V regulator
-
-We used HT7833 as main 3.3V regulator. The main advantage of this regulator is very low quiescentcurrent, typicaly 4 uA. 
-Thanks to this regulator and the design of board, the overall current in deepsleep is only 22 uA.
-
-## Programmer
-
-We have own USB-UART programmer with CH340 IC, [LaskaKit CH340 programmer](https://www.laskarduino.cz/laskakit-ch340-programmer-usb-c--microusb--uart/). You can connect this programmer to your laptop through microUSB or USB-C cabel. 
-The pinout of programmer is compatible with microESP. The programmer automatically switches the ESP8266 to bootloader mode and after the uploading of code, the ESP is automatically reset. 
-
-## Another features
-
-[LaskaKit microESP](https://www.laskarduino.cz/laskakit-microesp/) contains I2C connector for our temperature/humidity SHT4x/SHT3x module, buti t is not necessary to use only our module. You may directly use for example this module with [SHT31 module](https://www.laskarduino.cz/senzor-teploty-a-vlhkosti-vzduchu-sht30/), and indirectly [sensor of pressure, temperature and humidity BME280](https://www.laskarduino.cz/arduino-senzor-tlaku--teploty-a-vlhkosti-bme280/), [infrared sensor MLX90615](https://www.laskarduino.cz/arduino-infracerveny-teplomer-mlx90615/) or [GY-21 HTU21D sensor of temperature and humidity](https://www.laskarduino.cz/gy-21-htu21d-senzor-teploty-a-vlhkosti/).
-
-Moreover there are reset button, solder bridge between GPIO16 and reset (to enable the wake up from deepsleep) and also there is voltage divider what is connected to battery and ADC. 
-The maximum measured voltage is 4.3V what is enough for measuring of Li-ion battery.
-
-![microESP with solar panel](https://github.com/LaskaKit/microESP/blob/main/img/microESP_2.jpg)
-
-## Demo
-
-We created a demo with our microESP, what you can see on the picture above.
-The charging is indicated by LED on board, the sensor module [Temp-HumSensor-SHTxx](https://github.com/LaskaKit/Temp-HumSensor-SHTxx) may be directly connected to the main board. 
-
-The example is available on [our github repository](https://github.com/LaskaKit/microESP/tree/main/examples). IN this example, ESP12 (which we soldered) reads the current temperature and humidity from SHT40 and send to Serial monitor.
+![Description microESP_ESP32-C3_TOP.jpg](https://github.com/LaskaKit/microESP/blob/main/img/microESP_ESP32-C3_TOP.jpg)
