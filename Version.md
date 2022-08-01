@@ -1,4 +1,6 @@
-### Version 2.0
+### Version 2.1
+Adjusted resistor values in the resistance divider to 1M/1.3M, ADC max. input voltage stays the same.| Upraveny hodnoty rezistorů v odporovém děliči na 1M/1.3M, ADC max. vstupní napětí zůstává stejné.
+#### Version 2.0
 - Change ESP-12 to ESP32-C3 | Změněn modul ESP-12 na ESP32-C3
 - Voltager devider GPIIO0 (Bat_ADC) changed to 100k/130k ADC max. input voltage is 4.335 V | Dělič napětí GPIIO0 (Bat_ADC) změněn na 100k/130k ADC max. vstupní napětí je 4.335 V
 - Voltager devider GPIIO1 (Solar_ADC) changed to 1M/330k ADC max. input voltage is 9.874 V | Dělič napětí GPIIO1 (Solar_ADC) změněn na 1M/330k ADC max. vstupní napětí je 9.874 V
