@@ -16,7 +16,7 @@
 
 ESP32AnalogRead adcB;
 #define ADCBpin 0
-#define bDeviderRatio 1.7693877551  // Voltage devider ratio on ADC pin 100kOhm + 130kOhm
+#define bDeviderRatio 1.7693877551  // Voltage devider ratio on ADC pin 1MOhm + 1.3MOhm
 
 ESP32AnalogRead adcS;
 #define ADCSpin 1
