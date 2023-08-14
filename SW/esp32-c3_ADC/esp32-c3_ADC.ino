@@ -3,7 +3,6 @@
 *
 * MicroESP board reads voltage on Battery and Solar panel 
 * and sends every 2 seconds through UART
-* 
 *
 * Made by (c) laskakit.cz 2022
 * 
