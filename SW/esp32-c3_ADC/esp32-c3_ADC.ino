@@ -1,10 +1,10 @@
 /*
-* This example code is used for LaskaKit microESP board 
+* This example code is used for LaskaKit microESP board  https://www.laskakit.cz/laskakit-microesp/
 *
-* MicroESP board reads voltage on Battery and Solar panel 
+* MicroESP board reads voltage on Battery  
 * and sends every 2 seconds through UART
 *
-* Made by (c) laskakit.cz 2022
+* Made by (c) laskakit.cz 2023
 * 
 */
 
@@ -16,10 +16,6 @@ ESP32AnalogRead adcB;
 #define ADCBpin 0
 #define bDeviderRatio 1.7693877551  // Voltage devider ratio on ADC pin 1MOhm + 1.3MOhm
 
-ESP32AnalogRead adcS;
-#define ADCSpin 1
-#define sDeviderRatio 3.15           // Voltage devider ratio on ADC pin 1M + 330kOhm
-
 void setup() {
     
   Serial.begin(115200);
@@ -27,7 +23,6 @@ void setup() {
   
   // setting ADC
   adcB.attach(ADCBpin);
-  adcS.attach(ADCSpin);
 }
 
 void loop() {
@@ -35,11 +30,6 @@ void loop() {
   float bat_voltage = adcB.readVoltage() * bDeviderRatio;
   Serial.print("Battery Voltage = " );
   Serial.print(bat_voltage);
-  Serial.println("V");
-
-  float solar_voltage = adcS.readVoltage() * sDeviderRatio;
-  Serial.print("Solar Voltage = " );
-  Serial.print(solar_voltage);
   Serial.println("V");
 
   delay(2000);

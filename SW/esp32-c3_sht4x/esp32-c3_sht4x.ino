@@ -1,14 +1,14 @@
 /*
-* This example code is used for LaskaKit microESP board 
-* with our Temperature and Humidity SHT40 module
+* This example code is used for LaskaKit microESP board https://www.laskakit.cz/laskakit-microesp/
+* with our Temperature and Humidity SHT40 module        https://www.laskakit.cz/laskakit-sht40-senzor-teploty-a-vlhkosti-vzduchu/
 * MicroESP board reads temperature and humidity from SHT40 sensor 
 * and sends every second through UART
 * 
-*       microESP-12   microESP32-C3
-* SDA - GPIO4         GPIO19
-* SCL - GPIO5         GPIO18
+* microESP32-C3 
+* SDA - GPIO8
+* SCL - GPIO10
 *
-* Made by (c) laskakit.cz 2021
+* Made by (c) laskakit.cz 2023
 *
 * Libraries: https://github.com/Sensirion/arduino-i2c-sht4x
 * 
@@ -20,8 +20,8 @@
 
 SensirionI2CSht4x sht4x;
 
-#define SDA 19
-#define SCL 18
+#define SDA 8
+#define SCL 10
 
 void setup() {
 
