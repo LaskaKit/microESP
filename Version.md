@@ -1,4 +1,6 @@
-### Version 2.1
+### Version 3.0
+- Reworked version with new module ESP32-C3-MINI
+#### Version 2.1
 Adjusted resistor values in the resistance divider to 1M/1.3M, ADC max. input voltage stays the same.| Upraveny hodnoty rezistorů v odporovém děliči na 1M/1.3M, ADC max. vstupní napětí zůstává stejné.
 #### Version 2.0
 - Change ESP-12 to ESP32-C3 | Změněn modul ESP-12 na ESP32-C3
