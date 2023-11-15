@@ -4,6 +4,10 @@ An incredibly powerful yet miniature board - microESP with the latest ESP32-C3 c
 
 ![Popis microESP_ESP32-C3_BOTTOM.jpg](https://github.com/LaskaKit/microESP/blob/main/img/MicroESP-C3-mini_V3_0_bot.jpg)
 
+PINOUT
+
+![Pinout](https://github.com/LaskaKit/microESP/blob/main/img/MicroESP-C3-mini_V3_0_pinout.jpg)
+
 As you can see above, the board includes a lot of things. Let's describe the boardy in details. 
 The board is powered from Li-Pol battery what is charger through li-pol charger from solar panel. The recommended voltage of solar panel shall be 5V or 6V.
 
