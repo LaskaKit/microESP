@@ -4,6 +4,10 @@ Neskutečně nabušená a přitom miniaturní deska - microESP s nejnovějším 
 
 ![Popis microESP_ESP32-C3_BOTTOM.jpg](https://github.com/LaskaKit/microESP/blob/main/img/MicroESP-C3-mini_V3_0_bot.jpg)
 
+PINOUT
+
+![Pinout](https://github.com/LaskaKit/microESP/blob/main/img/MicroESP-C3-mini_V3_0_pinout.jpg)
+
 Jak můžeš vidět na obrázku výše, na desce je toho opravdu hodně. Deska se napájí z připojeného akumulátoru, který může být nabíjen přes integrovaný nabíjecí kontrolér ze solárního panelu. Jmenovité napětí solárního panelu doporučujeme 5V nebo 6V. 
 
 Na desku jsme přidali i náš μŠup konektor, ke kterému můžeš velmi pohodlně a bezpečně připojit nejrůznější I2C čidla. Konektor zajišťuje bezpečnost připojení díky vestavěnému zámku v konektoru. 
