@@ -1,10 +1,10 @@
 /*
-* This example code is used for LaskaKit microESP board https://www.laskakit.cz/laskakit-microesp/
-* with our Temperature and Humidity SHT40 module        https://www.laskakit.cz/laskakit-sht40-senzor-teploty-a-vlhkosti-vzduchu/
-* MicroESP board reads temperature and humidity from SHT40 sensor 
+* This example code is used for LaskaKit microESP32-C3 v2.x board https://www.laskakit.cz/laskakit-microesp/
+* with our Temperature and Humidity SHT40 module https://www.laskakit.cz/laskakit-sht40-senzor-teploty-a-vlhkosti-vzduchu/
+* MicroESP32-C3 v2.x board reads temperature and humidity from SHT40 sensor 
 * and sends every second through UART
 * 
-* microESP32-C3 
+* microESP32-C3 v2.x, For microESP32-C3 v3.x use (native) USBSerial instead of Serial.
 * SDA - GPIO8
 * SCL - GPIO10
 *
