@@ -1,9 +1,10 @@
 /*
-* This example code is used for LaskaKit microESP board 
+* This example code is used for LaskaKit microESP32-C3 v2.x board 
 *
-* MicroESP board reads voltage on Battery  
+* MicroESP32-C3 v2.x board reads voltage on Battery  
 * and sends every 2 seconds through UART and OLED display
 * 
+* microESP32-C3 v2.x, For microESP32-C3 v3.x use (native) USBSerial instead of Serial.
 *
 * Made by (c) laskakit.cz 2023
 * 
