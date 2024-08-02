@@ -1,3 +1,12 @@
+/*
+  *  Example code for deep sleep test with microESP32-C3 v3.x
+  *  Code shows how to go to deep sleep mode.
+  *  https://www.laskakit.cz/laskakit-microesp/
+  *  laskakit.cz (2023)
+  *
+  *
+*/
+
 // Must be disabled USB CDC On Boot
 
 #define SLEEP_SEC 15         // Measurement interval (seconds)
