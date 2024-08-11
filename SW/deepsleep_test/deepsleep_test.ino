@@ -12,6 +12,7 @@
   * ESP32 library 2.0.xy
   * Condition: Tools -> USB CDC On Boot must be disabled
   * use USBSerial instead of HWCDCSerial
+  *
   * Board: ESP32-C3 Dev Module
 */
 
