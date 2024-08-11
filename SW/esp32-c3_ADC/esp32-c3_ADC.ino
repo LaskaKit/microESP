@@ -2,18 +2,20 @@
 * This example code is used for LaskaKit microESP32-C3 board  https://www.laskakit.cz/laskakit-microesp/
 *
 * microESP32-C3 board reads voltage of Battery  
-* and sends every 2 seconds through native USB of microESP32-C3
+* and sends every 2 seconds through UART OR native USB of microESP32-C3 depends on settings, read below
 *
 * Made by (c) laskakit.cz 2024
 * 
 * !!! ESP library version !!!
 * ESP32 library 3.0.x
-* Condition: Tools -> USB CDC On Boot must be enabled
-* use HWCDCSerial instead of USBSerial
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
 * ---
 * ESP32 library 2.0.xy
 * Condition: Tools -> USB CDC On Boot must be disabled
-* use USBSerial instead of HWCDCSerial
+* use USBSerial to send data through native USB 
 *
 * Board: ESP32-C3 Dev Module
 */
@@ -28,7 +30,7 @@ ESP32AnalogRead adcB;
 
 void setup() {
     
-  USBSerial.begin(115200);
+  Serial.begin(115200);
   delay(100); // let serial console settle
   
   // setting ADC
@@ -38,9 +40,9 @@ void setup() {
 void loop() {
 
   float bat_voltage = adcB.readVoltage() * bDeviderRatio;
-  USBSerial.print("Battery Voltage = " );
-  USBSerial.print(bat_voltage);
-  USBSerial.println("V");
+  Serial.print("Battery Voltage = " );
+  Serial.print(bat_voltage);
+  Serial.println("V");
 
   delay(2000);
 }
