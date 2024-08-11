@@ -1,14 +1,24 @@
 /*
-* This example code is used for LaskaKit microESP32-C3 v2.x board https://www.laskakit.cz/laskakit-microesp/
+* This example code is used for LaskaKit microESP32-C3 board https://www.laskakit.cz/laskakit-microesp/
 * with our Temperature and Humidity SHT40 module https://www.laskakit.cz/laskakit-sht40-senzor-teploty-a-vlhkosti-vzduchu/
-* MicroESP32-C3 v2.x board reads temperature and humidity from SHT40 sensor 
-* and sends every second through UART
+* MicroESP32-C3 board reads temperature and humidity from SHT40 sensor 
+* and sends every second through native USB
 * 
-* microESP32-C3 v2.x, For microESP32-C3 v3.x use (native) USBSerial instead of Serial.
 * SDA - GPIO8
 * SCL - GPIO10
 *
-* Made by (c) laskakit.cz 2023
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> USB CDC On Boot must be enabled
+* use HWCDCSerial instead of USBSerial
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial instead of HWCDCSerial
+*
+* Board: ESP32-C3 Dev Module
+*
+* Made by (c) laskakit.cz 2024
 *
 * Libraries: https://github.com/Sensirion/arduino-i2c-sht4x
 * 
@@ -25,8 +35,8 @@ SensirionI2CSht4x sht4x;
 
 void setup() {
 
-    Serial.begin(115200);
-    while (!Serial) {
+    USBSerial.begin(115200);
+    while (!USBSerial) {
         delay(100);
     }
 
@@ -40,12 +50,12 @@ void setup() {
     uint32_t serialNumber;
     error = sht4x.serialNumber(serialNumber);
     if (error) {
-        Serial.print("Error trying to execute serialNumber(): ");
+        USBSerial.print("Error trying to execute serialNumber(): ");
         errorToString(error, errorMessage, 256);
-        Serial.println(errorMessage);
+        USBSerial.println(errorMessage);
     } else {
-        Serial.print("Serial Number: ");
-        Serial.println(serialNumber);
+        USBSerial.print("Serial Number: ");
+        USBSerial.println(serialNumber);
     }
 }
 
@@ -59,14 +69,14 @@ void loop() {
     float humidity;
     error = sht4x.measureHighPrecision(temperature, humidity);
     if (error) {
-        Serial.print("Error trying to execute measureHighPrecision(): ");
+        USBSerial.print("Error trying to execute measureHighPrecision(): ");
         errorToString(error, errorMessage, 256);
-        Serial.println(errorMessage);
+        USBSerial.println(errorMessage);
     } else {
-        Serial.print("Temperature:");
-        Serial.print(temperature);
-        Serial.print("\t");
-        Serial.print("Humidity:");
-        Serial.println(humidity);
+        USBSerial.print("Temperature:");
+        USBSerial.print(temperature);
+        USBSerial.print("\t");
+        USBSerial.print("Humidity:");
+        USBSerial.println(humidity);
     }
 }
