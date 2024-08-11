@@ -1,12 +1,21 @@
 /*
-* This example code is used for LaskaKit microESP32-C3 v2.x board 
+* This example code is used for LaskaKit microESP32-C3 board 
 *
-* MicroESP32-C3 v2.x board reads voltage on Battery  
-* and sends every 2 seconds through UART and OLED display
+* MicroESP32-C3 board reads voltage on Battery  
+* and sends every 2 seconds through native USB and OLED display
 * 
-* microESP32-C3 v2.x, For microESP32-C3 v3.x use (native) USBSerial instead of Serial.
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> USB CDC On Boot must be enabled
+* use HWCDCSerial instead of USBSerial
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial instead of HWCDCSerial
 *
-* Made by (c) laskakit.cz 2023
+* Board: ESP32-C3 Dev Module
+*
+* Made by (c) laskakit.cz 2024
 * 
 */
 #include <SPI.h>
@@ -25,8 +34,8 @@ Adafruit_SH1106G display = Adafruit_SH1106G(128, 64, &Wire, -1); //Nastavit disp
 
 void setup() {
 
-  Serial.begin(115200);
-  while(!Serial);    // time to get serial running
+  USBSerial.begin(115200);
+  while(!USBSerial);    // time to get serial running
 
   Wire.begin(SDA,SCL);  
   
@@ -43,9 +52,9 @@ void setup() {
 void loop() {
 
   float bat_voltage = adcB.readVoltage() * bDeviderRatio;
-  Serial.print("Battery Voltage = " );
-  Serial.print(bat_voltage);
-  Serial.println("V");
+  USBSerial.print("Battery Voltage = " );
+  USBSerial.print(bat_voltage);
+  USBSerial.println("V");
 
   display.clearDisplay();
 
