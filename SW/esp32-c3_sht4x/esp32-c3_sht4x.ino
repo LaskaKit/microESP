@@ -9,16 +9,16 @@
 *
 * !!! ESP library version !!!
 * ESP32 library 3.0.x
-* Condition: Tools -> USB CDC On Boot must be enabled
-* use HWCDCSerial instead of USBSerial
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
 * ---
 * ESP32 library 2.0.xy
 * Condition: Tools -> USB CDC On Boot must be disabled
-* use USBSerial instead of HWCDCSerial
+* use USBSerial to send data through native USB 
 *
 * Board: ESP32-C3 Dev Module
-*
-* Made by (c) laskakit.cz 2024
 *
 * Libraries: https://github.com/Sensirion/arduino-i2c-sht4x
 * 
@@ -35,8 +35,8 @@ SensirionI2CSht4x sht4x;
 
 void setup() {
 
-    USBSerial.begin(115200);
-    while (!USBSerial) {
+    Serial.begin(115200);
+    while (!Serial) {
         delay(100);
     }
 
@@ -50,12 +50,12 @@ void setup() {
     uint32_t serialNumber;
     error = sht4x.serialNumber(serialNumber);
     if (error) {
-        USBSerial.print("Error trying to execute serialNumber(): ");
+        Serial.print("Error trying to execute serialNumber(): ");
         errorToString(error, errorMessage, 256);
-        USBSerial.println(errorMessage);
+        Serial.println(errorMessage);
     } else {
-        USBSerial.print("Serial Number: ");
-        USBSerial.println(serialNumber);
+        Serial.print("Serial Number: ");
+        Serial.println(serialNumber);
     }
 }
 
@@ -69,14 +69,14 @@ void loop() {
     float humidity;
     error = sht4x.measureHighPrecision(temperature, humidity);
     if (error) {
-        USBSerial.print("Error trying to execute measureHighPrecision(): ");
+        Serial.print("Error trying to execute measureHighPrecision(): ");
         errorToString(error, errorMessage, 256);
-        USBSerial.println(errorMessage);
+        Serial.println(errorMessage);
     } else {
-        USBSerial.print("Temperature:");
-        USBSerial.print(temperature);
-        USBSerial.print("\t");
-        USBSerial.print("Humidity:");
-        USBSerial.println(humidity);
+        Serial.print("Temperature:");
+        Serial.print(temperature);
+        Serial.print("\t");
+        Serial.print("Humidity:");
+        Serial.println(humidity);
     }
 }
