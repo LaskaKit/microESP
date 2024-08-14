@@ -1,12 +1,21 @@
 /*
-* This example code is used for LaskaKit microESP32-C3 v2.x board 
+* This example code is used for LaskaKit microESP32-C3 board 
 *
-* MicroESP32-C3 v2.x board reads voltage on Battery  
-* and sends every 2 seconds through UART and OLED display
+* MicroESP32-C3 board reads voltage on Battery  
+* and sends every 2 seconds through UART or native USB (depends on setting, read below) and OLED display
 * 
-* microESP32-C3 v2.x, For microESP32-C3 v3.x use (native) USBSerial instead of Serial.
+* !!! ESP library version !!!
+* ESP32 library 3.0.x
+* Condition: Tools -> if USB CDC On Boot is ENABLED then
+* Serial means native USB
+* Tools -> if USB CDC On Boot is DISABLED then
+* Serial means UART
+* ---
+* ESP32 library 2.0.xy
+* Condition: Tools -> USB CDC On Boot must be disabled
+* use USBSerial to send data through native USB 
 *
-* Made by (c) laskakit.cz 2023
+* Board: ESP32-C3 Dev Module
 * 
 */
 #include <SPI.h>
