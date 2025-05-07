@@ -1,4 +1,10 @@
-### Version 3.0
+### Version 3.1
+- LDO replaced for RT9080
+- µŠup konnector moved a little bit inside
+- I2C pullups deleted
+- Some power optimisation
+- LED Added on GPIO 4
+#### Version 3.0
 - Reworked version with new module ESP32-C3-MINI
 #### Version 2.1
 Adjusted resistor values in the resistance divider to 1M/1.3M, ADC max. input voltage stays the same.| Upraveny hodnoty rezistorů v odporovém děliči na 1M/1.3M, ADC max. vstupní napětí zůstává stejné.
