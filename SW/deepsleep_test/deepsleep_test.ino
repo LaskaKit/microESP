@@ -1,5 +1,6 @@
 /*
-  *  Example code for deep sleep test with microESP32-C3 v3.x
+  *  Example code for deep sleep test with microESP32-C3
+  *   V3.1: 15 µA
   *  Code shows how to go to deep sleep mode.
   *  https://www.laskakit.cz/laskakit-microesp/
   *  laskakit.cz (2024)
