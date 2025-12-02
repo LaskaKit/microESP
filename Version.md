@@ -1,4 +1,4 @@
-### Version 3.1
+### Version 3.2
 - Fixed wrong IO number on top silkscreen, IO8 was "1"
 #### Version 3.1
 - LDO replaced for RT9080
